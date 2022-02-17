@@ -75,7 +75,7 @@ const Metrics = () => {
     }
 
     return (
-        <div>
+        <div data-testid="metrics">
             <CreateMetricModal
                 open={showMetric}
                 close={closeCreateMetric}
@@ -89,15 +89,18 @@ const Metrics = () => {
                     </Toolbar>
                 </AppBar>
             </Box>
-            {
-                metrics && metrics.length > 0 && metrics.map((item, index) => (
-                    <MetricCard
-                        key={index}
-                        item={item}
-                        deleteMetric={deleteMetric}
-                    />
-                ))
-            }
+            <div data-testid="metric-cards">
+                {
+                    metrics && metrics.length > 0 && metrics.map((item, index) => (
+                        <MetricCard
+                            key={index}
+                            item={item}
+                            deleteMetric={deleteMetric}
+                        />
+                    ))
+                }
+            </div>
+
         </div>
     )
 }
